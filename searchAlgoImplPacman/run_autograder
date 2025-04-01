@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# Set up autograder files
+
+cp /autograder/submission/search.py /autograder/source/search.py
+cp /autograder/submission/searchAgents.py /autograder/source/searchAgents.py
+
+cd /autograder/source
+
+python3 autograder.py --gradescope-output --edx-output 
