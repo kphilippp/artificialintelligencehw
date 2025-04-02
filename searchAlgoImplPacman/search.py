@@ -12,6 +12,10 @@
 # Pieter Abbeel (pabbeel@cs.berkeley.edu).
 
 
+# Kevin Philip
+# Keven Diaz
+
+
 """
 In search.py, you will implement generic search algorithms which are called by
 Pacman agents (in searchAgents.py).
@@ -134,7 +138,7 @@ def uniformCostSearch(problem):
     
     priorityQueue = PriorityQueue()
     startState = problem.getStartState()
-    priorityQueue.push(startState, [], 0)
+    priorityQueue.push((startState, [], 0), 0)
     visited = {}
 
     while priorityQueue:
@@ -180,7 +184,7 @@ def aStarSearch(problem, heuristic=nullHeuristic):
             newCumCost = cumCost + stepCost
             aScore = newCumCost + heuristic(neighbor, problem)
             newActions = actions + [action]
-            priorityQueue.push((neighbor, newActions, cumCost), aScore)
+            priorityQueue.push((neighbor, newActions, newCumCost), aScore)
     return []
 
 

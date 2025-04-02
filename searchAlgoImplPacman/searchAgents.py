@@ -409,13 +409,15 @@ def cornersHeuristic(state, problem):
 
     heuristic = 0
 
+
     # Repeatedly move to the closest unvisited corner.
     while unvisitedCornerList:
-        # Calculate Manhattan distances to each unvisited corner.
-        distances = [(abs(currx - corner[0]) + abs(curry - corner[1]), corner) 
-                     for corner in unvisitedCornerList]
+        distances = []
+        for corner in unvisitedCornerList:
+            distances.append((abs(currx - corner[0]) + abs(curry - corner[1]), corner))
         d, nearest = min(distances)
         heuristic += d
+        currx, curry = nearest[0], nearest[1]
         unvisitedCornerList.remove(nearest)
 
     return heuristic
